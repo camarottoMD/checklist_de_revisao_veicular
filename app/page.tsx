@@ -39,11 +39,11 @@ export default function Garagem() {
         onChange={(e) => setBusca(e.target.value)}
         placeholder="Buscar por placa ou modelo..."
         aria-label="Buscar por placa ou modelo"
-        className="w-full rounded-md border border-slate-300 bg-white px-4 py-3 text-base outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30"
+        className="w-full rounded-md border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-4 py-3 text-base outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30"
       />
 
       {veiculosFiltrados.length === 0 ? (
-        <p className="rounded-lg border border-dashed border-slate-300 p-8 text-center text-slate-500">
+        <p className="rounded-lg border border-dashed border-slate-300 dark:border-slate-600 p-8 text-center text-slate-500 dark:text-slate-400">
           Nenhum veículo encontrado para &quot;{busca}&quot;.
         </p>
       ) : (

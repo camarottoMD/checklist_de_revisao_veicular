@@ -53,17 +53,17 @@ export default function Relatorios() {
         />
       </section>
 
-      <section className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+      <section className="rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 shadow-sm">
         <h2 className="mb-3 text-lg font-semibold">
           Histórico de Revisões de Hoje
         </h2>
         {historico.length === 0 ? (
-          <p className="text-sm text-slate-500">Nenhuma revisão feita hoje.</p>
+          <p className="text-sm text-slate-500 dark:text-slate-400">Nenhuma revisão feita hoje.</p>
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full min-w-[560px] text-left text-sm">
               <thead>
-                <tr className="border-b border-slate-200 text-xs uppercase text-slate-500">
+                <tr className="border-b border-slate-200 dark:border-slate-700 text-xs uppercase text-slate-500 dark:text-slate-400">
                   <th className="py-2 pr-4 font-semibold">Placa</th>
                   <th className="py-2 pr-4 font-semibold">Motorista</th>
                   <th className="py-2 pr-4 font-semibold">Horário</th>
@@ -75,7 +75,7 @@ export default function Relatorios() {
                 {historico.map((revisao) => (
                   <tr
                     key={revisao.id}
-                    className="border-b border-slate-100 last:border-0"
+                    className="border-b border-slate-100 dark:border-slate-700 last:border-0"
                   >
                     <td className="py-3 pr-4 font-mono font-semibold">
                       {revisao.placa}
@@ -98,7 +98,7 @@ export default function Relatorios() {
         )}
       </section>
 
-      <section className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+      <section className="rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 shadow-sm">
         <h2 className="mb-3 text-lg font-semibold">Itens que mais reprovam</h2>
         <GraficoReprovacoes revisoes={revisoes} />
       </section>

@@ -20,7 +20,7 @@ export default function GraficoReprovacoes({ revisoes }: { revisoes: Revisao[] }
     .sort((a, b) => b.quantidade - a.quantidade);
 
   if (barras.length === 0) {
-    return <p className="text-sm text-slate-500">Nenhum item reprovado hoje.</p>;
+    return <p className="text-sm text-slate-500 dark:text-slate-400">Nenhum item reprovado hoje.</p>;
   }
 
   return (
@@ -29,11 +29,11 @@ export default function GraficoReprovacoes({ revisoes }: { revisoes: Revisao[] }
         <li key={barra.itemId}>
           <div className="mb-1 flex items-baseline justify-between gap-2 text-sm">
             <span className="font-medium">{labelDoItem(barra.itemId)}</span>
-            <span className="text-slate-500">
+            <span className="text-slate-500 dark:text-slate-400">
               {barra.quantidade}x · <strong>{barra.percentual}%</strong>
             </span>
           </div>
-          <div className="h-4 w-full overflow-hidden rounded bg-slate-100">
+          <div className="h-4 w-full overflow-hidden rounded bg-slate-100 dark:bg-slate-700">
             <div
               className="h-full rounded bg-red-500"
               style={{ width: `${barra.percentual}%` }}

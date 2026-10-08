@@ -1,10 +1,11 @@
 import { Suspense } from "react";
 import Link from "next/link";
+import BotaoTema from "./BotaoTema";
 import NavLinks from "./NavLinks";
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-10 border-b border-slate-200 bg-white">
+    <header className="sticky top-0 z-10 border-b border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800">
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-3 px-4 py-3">
         <Link href="/" className="flex min-w-0 items-center gap-2 font-bold">
           <span aria-hidden className="text-xl">
@@ -14,10 +15,13 @@ export default function Header() {
             Checklist<span className="hidden sm:inline"> Veicular</span>
           </span>
         </Link>
-        {/* usePathname suspende em rotas dinâmicas durante o prerender */}
-        <Suspense fallback={null}>
-          <NavLinks />
-        </Suspense>
+        <div className="flex items-center gap-1">
+          {/* usePathname suspende em rotas dinâmicas durante o prerender */}
+          <Suspense fallback={null}>
+            <NavLinks />
+          </Suspense>
+          <BotaoTema />
+        </div>
       </div>
     </header>
   );

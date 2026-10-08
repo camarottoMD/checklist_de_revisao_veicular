@@ -19,12 +19,21 @@ export const metadata: Metadata = {
   description: "Checklist diário de revisão da frota antes da saída dos veículos",
 };
 
+// Roda antes da primeira pintura para a tela não piscar no tema errado.
+// Sem escolha salva, segue a preferência do sistema.
+const scriptTema = `(function(){try{var t=localStorage.getItem("tema");if(t==="dark"||(!t&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.classList.add("dark")}catch(e){}})()`;
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="pt-BR"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      // o script abaixo adiciona a classe "dark" antes da hidratação
+      suppressHydrationWarning
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: scriptTema }} />
+      </head>
       <body className="min-h-full flex flex-col">
         <FrotaProvider>
           <Header />

@@ -9,24 +9,24 @@ function formatarData(data: string) {
 
 export default function CardVeiculo({ veiculo }: { veiculo: Veiculo }) {
   return (
-    <article className="flex flex-col gap-4 rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+    <article className="flex flex-col gap-4 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 shadow-sm">
       <div className="flex items-start justify-between gap-2">
         <div className="min-w-0">
           <h2 className="font-mono text-lg font-bold tracking-wider">
             {veiculo.placa}
           </h2>
-          <p className="truncate text-sm text-slate-600">{veiculo.modelo}</p>
+          <p className="truncate text-sm text-slate-600 dark:text-slate-300">{veiculo.modelo}</p>
         </div>
         <SeloStatus status={veiculo.status} />
       </div>
 
       <dl className="grid grid-cols-2 gap-2 text-sm">
         <div className="min-w-0">
-          <dt className="text-xs text-slate-500">Motorista</dt>
+          <dt className="text-xs text-slate-500 dark:text-slate-400">Motorista</dt>
           <dd className="truncate font-medium">{veiculo.motorista}</dd>
         </div>
         <div>
-          <dt className="text-xs text-slate-500">Última revisão</dt>
+          <dt className="text-xs text-slate-500 dark:text-slate-400">Última revisão</dt>
           <dd className="font-medium">{formatarData(veiculo.ultimaRevisao)}</dd>
         </div>
       </dl>
