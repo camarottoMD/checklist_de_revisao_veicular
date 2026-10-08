@@ -15,7 +15,7 @@ const bolinhas: Record<StatusVeiculo, string> = {
 export default function SeloStatus({ status }: { status: StatusVeiculo }) {
   return (
     <span
-      className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold ring-1 ring-inset ${estilos[status]}`}
+      className={`inline-flex shrink-0 items-center whitespace-nowrap gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold ring-1 ring-inset ${estilos[status]}`}
     >
       <span aria-hidden className={`h-2 w-2 rounded-full ${bolinhas[status]}`} />
       {status}

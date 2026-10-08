@@ -12,8 +12,6 @@ interface DadosFrota {
 }
 
 interface FrotaContextValue extends DadosFrota {
-  /** false no servidor e na hidratação, antes de o localStorage ser lido */
-  carregado: boolean;
   buscarVeiculo: (id: number) => Veiculo | undefined;
   salvarRevisao: (
     veiculoId: number,
@@ -69,11 +67,6 @@ const FrotaContext = createContext<FrotaContextValue | null>(null);
 
 export function FrotaProvider({ children }: { children: React.ReactNode }) {
   const dados = useSyncExternalStore(assinar, lerDados, () => dadosIniciais);
-  const carregado = useSyncExternalStore(
-    assinar,
-    () => true,
-    () => false,
-  );
 
   function buscarVeiculo(id: number) {
     return dados.veiculos.find((veiculo) => veiculo.id === id);
@@ -116,9 +109,7 @@ export function FrotaProvider({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <FrotaContext.Provider
-      value={{ ...dados, carregado, buscarVeiculo, salvarRevisao }}
-    >
+    <FrotaContext.Provider value={{ ...dados, buscarVeiculo, salvarRevisao }}>
       {children}
     </FrotaContext.Provider>
   );
